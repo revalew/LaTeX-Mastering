@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref} % For making hyper-references. This makes the references "clickable" and the web-page when citing Wikipedia possible to click.
+\usepackage{dtk-logos} % For BibTeX and other Logos
+
+\title{Solution to Exercise About \BibTeX{}}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{Disney movies based on books}
+
+Several of the Disney movies from our childhood is based on books. Examples are \textit{The Little Mermaid} which is based on \cite{andersen1964little}, \textit{The Hunchback of Notre-Dame} which is based on \cite{hugo2012hunchback}, and \textit{Treasure Planet} based on \cite{stevenson1883sea}. Common for most of these adaptations is that the original scripts is in the public domain. Hence one do not need to pay a licensing fee when creating an adaption. A more in-dept description on what it means that a work is in the public domain can be found here \cite{wiki:xxx}.
+
+\section{Exercises}
+\begin{enumerate}
+    \item Add the references in the text above using the \verb+\cite{}+ command. The references are already added in the \texttt{References.bib} file.
+    \item Make a reference list at the end of the document.
+    \item Change the style of the references to the \texttt{alpha} style.
+\end{enumerate}
+
+\bibliographystyle{alpha} % Setting the style to alpha
+\bibliography{References} % Making a reference list.
+\end{document}

@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amsthm}
+
+% Import the package needed to make references.
+
+\title{Exercise: References and Links}
+\author{Your Name}
+\date{November 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{The Fibonacci Sequence}
+\subsection{Introduction}
+The Fibonacci sequence is a sequence of numbers that often pops up in nature. It is named after the Italian mathematician Fibonacci living during the 13'th century. However, the sequence was known several centuries before, see [Link to Wikipedia article on the Fibonacci numbers].
+
+\subsection{Definition of the Sequence}
+The $n$'th Fibonacci number is denoted by $F_{n}$, where $n$ is a natural number (including zero). The start of the sequence is defined to be $F_{0}=0$ and $F_{1}=1$, the rest of the numbers are defined by the recursive formula 
+\begin{equation}
+    F_{n}=F_{n-1}+F_{n-2}.
+\end{equation}
+By using formula [Reference formula above] we can compute the second Fibonacci number to be 
+\[F_2=F_1+F_0=1+0=1,\]
+the third to be 
+\[F_3=F_2+F_1=1+1=2,\]
+and so on.
+The first numbers in the sequence is given by
+\[0,\, 1,\, 1,\, 2,\, 3,\, 5,\, 8,\, 13,\, 21,\, \dots \]
+\subsection{Connection to the Golden Ratio}
+The Fibonacci sequence is tied to the golden ratio via its generating function. The generating function is another way to express the Fibonacci sequence than the one given in Section [Refer to the sub-section "Definition of the Sequence"]. Let $\phi$ denote the golden ratio, which is given by $\phi=\frac{1+\sqrt{5}}{2} \approx 1.618$, and its conjugate $-\frac{1}{\phi}=\frac{1-\sqrt{5}}{2}$. Then the Fibonacci sequence can be written as 
+\[F_n = \frac{\phi^n-(-1/\phi)^n}{\sqrt{5}}.\]
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass[12pt]{article} % article style fotmatting, 12pt font-size
+
+\usepackage{csquotes} % nice quotes
+\usepackage{blindtext} % lorem filler
+\usepackage{comment} % multiline comment - kind of useless imho
+\usepackage{hyperref}
+
+\title{This is test}
+\author{Me}
+\date{\today}
+\renewcommand{\contentsname}{Spis treści} % can localise the table of contents - fun fact
+
+\begin{document}
+\maketitle
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+
+\section{Example of a section}
+\section{Example of a section}
+\textbf{Hello}, \textit{welcome} \underline{to} the world of \LaTeX.
+\begin{comment}
+    <?-- doopa -->
+    <?-- doopa -->
+\end{comment}
+He said \textquote{this is not what i said} % quote
+
+\blindtext % lorem filler
+\end{document}
