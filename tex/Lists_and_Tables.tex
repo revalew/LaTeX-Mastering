@@ -1,0 +1,103 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{enumerate}
+
+\title{Lists \& Tables}
+\author{Me}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Commands vs. Environments}
+
+\textbf{command} $\Rightarrow$ starts with "$\backslash$" can take arguments in "\{ \}" and sometimes has options in "[ ]"
+\\
+\textbf{environment} $\Rightarrow$ enclosed in "\textbackslash begin\{\} \textbackslash end\{\}" command with the argument specifying the env name, like idk "center"
+\\
+\textbf{abstract} $\Rightarrow$ short text with explanation of what the article is about
+
+\section{Unordered Lists}
+\begin{itemize}
+    \item[-] Bread :\textbar
+    \item Bread :\textbar
+    \begin{itemize}
+        \item Bread :\textbar
+        \item Bread :\textbar
+    \end{itemize}
+\end{itemize}
+
+\section{Ordered Lists}
+\begin{enumerate}
+    \item Bread :\textbar
+    \item Bread :\textbar
+    \begin{itemize}
+        \item Bread :\textbar
+    \end{itemize}
+    \begin{enumerate}[I)]
+        \item Bread :\textbar
+        \item Bread :\textbar
+        \begin{itemize}
+            \item Bread :\textbar
+        \end{itemize}
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+\section{Exercise: Replicating a List}
+I am deeply sorry for I have not made the exercise as intended.
+\begin{enumerate}
+    \item The Lord of the Ring Series
+    \begin{itemize}
+        \item part 1
+        \item part 2
+        \item part 3
+    \end{itemize}
+    \item Star Wars original trilogy
+    \begin{itemize}
+        \item part 1
+        \item part 2
+        \item part 3
+    \end{itemize}
+    \item The Hunger Games trilogy
+    \begin{itemize}
+        \item part 1
+        \item part 2
+        \item part 3
+        \begin{itemize}
+            \item part 1
+            \item part 2
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\section{Making Tables}
+\begin{table}[h] % h - HERE; t - TOP of the page; t! - TOP but louder (???) kind of forcing; b - BOTTOM
+    \centering
+    \begin{tabular}{| r | c | l |} % r / c / l => how it is flushed
+        \hline 1 & 2 & 3 \\ \hline
+        4 & 5 & 6 \\ \hline
+    \end{tabular}
+    \caption{This is the best table You have ever seen.}
+\end{table}
+
+\newpage
+\section{Exercise: Replicating a Table}
+Again, I modified the exercise as it is pointless to copy the text word for word.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l | c c c}
+        Fruit & Calories, kcal & Salt, mg & sugar, g \\ \hline
+        Banana & 89 & 1 & 12 \\
+        Apple & 52 & 1 & 10 \\
+        Peach & 39 & 0 & 8 \\
+        Pear & 57 & 1 & 9
+    \end{tabular}
+    \caption{Nutrients for different fruit per 100g.}
+\end{table}
+
+\end{document}
