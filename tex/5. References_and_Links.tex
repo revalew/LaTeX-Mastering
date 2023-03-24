@@ -1,0 +1,62 @@
+\documentclass[12pt, titlepage]{article}
+
+\usepackage{amsmath} % here it allows us to reference the equations
+\usepackage{hyperref} % labels become clickable
+
+\title{References \& Links}
+\author{Me}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Basic Referencing}
+\subsection{Hand}
+good
+
+\subsection{LaTeX} \label{LaTeX-section} % name of the label used for referencing
+better
+
+\subsection{Word}
+the worst, unlike LaTeX mentioned in section \ref{LaTeX-section} on page \pageref{LaTeX-section}.
+
+\section{Referencing Equations}
+second degree polynomial
+\begin{equation} % this env allows us to reference equations
+    \label{polynomial-equation}
+    f(x) = ax^{2} + bx + c
+\end{equation}
+You can not create a nice Equations like \eqref{polynomial-equation} in Word.
+
+\section{Hyperref Package and Links}
+This is so easy... Why am I doing this now after 10h fight with tex and preparing the format for my lab... ;-; \url{https://gprivate.com/64aws}
+
+\href{https://gprivate.com/64aws}{\textbf{THIS IS SO SAD}}
+
+\section{Exercise: References and Links}
+
+\subsection{The Fibonacci Sequence}
+\subsubsection{Introduction}
+The Fibonacci sequence is a sequence of numbers that often pops up in nature. It is named after the Italian mathematician Fibonacci living during the 13'th century. However, the sequence was known several centuries before, see \href{https://www.bing.com/ck/a?!&&p=08068f3e5b6ab4cdJmltdHM9MTY3OTYxNjAwMCZpZ3VpZD0xZTgzZmFhYS0zMTUwLTYzYWYtMzM4MS1lODA3MzA0MjYyNzUmaW5zaWQ9NTI0MA&ptn=3&hsh=3&fclid=1e83faaa-3150-63af-3381-e80730426275&psq=fibonacci&u=a1aHR0cHM6Ly9wbC53aWtpcGVkaWEub3JnL3dpa2kvQ2klQzQlODVnX0ZpYm9uYWNjaWVnbw&ntb=1}{\textbf{this article}}.
+
+\subsubsection{Definition of the Sequence} \label{sec_def_of_seq}
+The $n$'th Fibonacci number is denoted by $F_{n}$, where $n$ is a natural number (including zero). The start of the sequence is defined to be $F_{0}=0$ and $F_{1}=1$, the rest of the numbers are defined by the recursive formula 
+\begin{equation} \label{eq_fib}
+    F_{n}=F_{n-1}+F_{n-2}.
+\end{equation}
+By using formula \eqref{eq_fib} we can compute the second Fibonacci number to be 
+\[F_2=F_1+F_0=1+0=1,\]
+the third to be 
+\[F_3=F_2+F_1=1+1=2,\]
+and so on.
+The first numbers in the sequence is given by
+\[0,\, 1,\, 1,\, 2,\, 3,\, 5,\, 8,\, 13,\, 21,\, \dots \]
+\subsubsection{Connection to the Golden Ratio}
+The Fibonacci sequence is tied to the golden ratio via its generating function. The generating function is another way to express the Fibonacci sequence than the one given in Section \ref{sec_def_of_seq}. Let $\phi$ denote the golden ratio, which is given by $\phi=\frac{1+\sqrt{5}}{2} \approx 1.618$, and its conjugate $-\frac{1}{\phi}=\frac{1-\sqrt{5}}{2}$. Then the Fibonacci sequence can be written as 
+\[F_n = \frac{\phi^n-(-1/\phi)^n}{\sqrt{5}}.\]
+
+\end{document}
