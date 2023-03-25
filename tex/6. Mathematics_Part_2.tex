@@ -1,6 +1,9 @@
 \documentclass[12pt,titlepage]{article}
 
-\usepackage{amssymb, amsmath, amsthm} % standard package combo
+\usepackage{amssymb, amsmath, amsthm, amsfonts} % standard package combo
+\newtheorem{theorem}{Theorem}[section] % creating the theorem env
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem*{remark}{Remark}
 
 \title{Beautiful Mathematics Part 2}
 \author{Me}
@@ -36,5 +39,140 @@ $\max_{n \in \{1, 2, 3\}}n \\ \min, \sup, \inf, \limsup$
 
 \newpage
 \section{Mathematics on Multiple Lines}
+\subsection{Multiline Equations}
+\begin{multline} \label{multiline_env}
+    % normaly the equation goes out of bounds so we use \\
+    % to remove the numbering of the equation we use the *
+    f(x) = 2x+2x^2+2x+2x^2+2x+2x^2+2x+2x^2+2x+\\2x^2+2x+2x^2+2x+2x^2+2x+2x^2+\\2x+2x^2+2x+2x^2+2x\\+2x^2+2x+2x^2+2x+2x^2+2x+2x^2
+\end{multline}
+
+\subsection{Align env}
+\begin{align} \label{align_env}
+    % the &= means we want to align the equation with the = sign. Alignment on the eq sign.
+    2x+3y+3z+w&=2 & 3x+4y+1z+0w&=4 \\
+    x+4y+3z+w&=3 & -x-y-z-w&=3 \notag % removes the numbering on 1 line
+\end{align}
+
+In the \eqref{multiline_env} we can see how the equation is spanning Multiple lines.
+
+In the \eqref{align_env} we can see how we can align 2 equations on a single line
+
+\subsection{Simplifying the equation with Align env}
+\begin{align*}
+    f(x)&=2x+3y-2x\\
+    &= 3y
+\end{align*}
+
+\section{Formatting Mathematics}
+Rule of thumb is that the inline Math in "\$ \$" env, should not exceed the $\frac{1}{3}$ of the text width. If it is longer than that we should be using a display Math in "\textbackslash[ \textbackslash]" env.
+\vspace{0.5cm}
+
+We can also change the size of the parenthesees with "\textbackslash big, \textbackslash Big, \textbackslash bigg, \textbackslash Bigg" like this $\longrightarrow \; \Bigg( \, \bigg( \, \Big( \, \big($.
+
+Also it is a good practice to leave a little space between the orgument of the "$\int$" and the "$dx$". So instead of $\int xdx$ we do "$\int x\,dx$" with "\textbackslash ," space (small space).
+
+\section{Exercise: Replicate the Mathematics 2}
+\begin{align*}
+    \int_{0}^{1} \frac{(x+1)(x-2)}{x-3}\,dx &= \int_{0}^{1}\frac{x^2-x-2}{x-3}\,dx\\
+    &= \int_{0}^{1} x+2+\frac{4}{x-3}\,dx\\
+    &= \bigg[\frac{1}{2}x^2+2x+4\ln \vert x-3\vert\bigg]_{0}^{1}\\
+    &= \frac{5}{2}+4 \ln (2/3).
+\end{align*}
+
+\section{Math Fonts}
+\subsection{Boldface Math Font}
+\[a \rightarrow \mathbf{a}\]
+\subsection{Caligraphy fonts}
+\[T \rightarrow \mathcal{T}\]
+
+\subsection{Blackboard Boldface}
+\[R \rightarrow \mathbb{R}\]
+
+\subsection{Symbols}
+\[\bar{a}, \overline{ab}\]
+\[\dot f, f', f''', f^{(3)}\]
+
+\newpage
+\section{Matrices and Cases}
+These envs need to be written inside of the math env (inline / display math, align, multiline or any other which accepts the math). It is not advised to write Matrices in inline math env.
+\subsection{Matrices}
+\[
+    A = 
+    \begin{bmatrix}
+        % we can start this env with letters before the "matrix"
+        % these letters determine the parentheses type
+        % p = ()     b = []     v = ||
+        1 & 2 & 3 & 4 \\
+        5 & 6 & 7 & 8 
+    \end{bmatrix}
+\]
+
+\subsection{Cases}
+\[
+    |x| = 
+    \begin{cases}
+        x & \text{ for } x > 0 \\
+        0 & \text{ for } x = 0 \\
+        -x & \text{ for } x < 0
+    \end{cases}
+\]
+
+\section{Exercise: Replicate the Mathematics 3}
+\[
+    \mathbf{v}=
+    \begin{pmatrix}
+        1 \\ 2 \\ 3
+    \end{pmatrix}
+    \qquad A = 
+    \begin{bmatrix}
+        1 & 0 & 1 \\
+        0 & 1 & 1 \\
+        0 & 0 & 1
+    \end{bmatrix}
+\]  
+
+\section{Exercise: Replicate the Mathematics 4}
+\[
+    f(x)=
+    \begin{cases}
+        1, & \text{ for } x > 0 \\
+        0, & \text{ for } x = 0 \\
+        -1, & \text{ for } x < 0
+    \end{cases}
+\]
+
+\newpage
+\section{Making Theorems, Definitions, and Remarks} \label{section: Making Theorems}
+We have to create the Theorem env (in the preamble) with the "amsthm" package.
+
+\begin{theorem}[Name of theorem] % in the options bracket we can write the name / reference of this specific theorem
+    This is a Theorem.
+\end{theorem}
+
+\begin{definition} \label{def: This is definition}
+    This is a definition.
+\end{definition}
+
+As we can see the theorem envs we created are all numbered. To change that we use "*" in the env definition (preamble).
+
+\begin{remark}
+    This is a remark.
+\end{remark}
+
+We can also label the theorem envs. \\
+The definition: \ref{def: This is definition}\\
+
+\section{Numbering and Theoremstyle}
+We can see that the definitions and theorems have their own individual counting (Section \ref{section: Making Theorems}). We can change that with the option in preamble like so: "\textbackslash newtheorem\{definition\}[theorem]\{Definition\}" where the "theorem" is the name of the env of which we want to continue the counting.
+
+We can also include the number of the section when writing the theorem envs with the option "section" like this: "\textbackslash newtheorem\{theorem\}\{Theorem\}[section]". We can also use options like "chapter" when we are writing a book, or "subsection" to include the number of the subsection as well as section.
+
+We can also change the theorem style with the "\textbackslash theoremstyle\{\}" and options: "plain" which is the default style, "definition" - the text is no longer italicised, "remark" - the text is italicised instead of being Boldface. These styles are applicable to all the "\textbackslash newtheorem\{\}" underneath the new style.
+
+\vspace{0.5cm}
+With the theorem we also need \textit{proof}.
+\begin{proof}
+    This is a proof.
+\end{proof}
 
 \end{document}
