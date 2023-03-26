@@ -1,0 +1,86 @@
+\documentclass[12pt,titlepage]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{dtk-logos} % For BibTeX and other Logos
+
+\title{Citing References}
+\author{Me}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\section{References in the Main File}
+
+\subsection{Bibliography environment}
+To use the reference we use the "\textbackslash cite\{\}" with the name of the reference we created like this \cite{andersen} or this \cite{shelley}.
+
+The "\textbackslash cite" can take optional arguments like [p. 37] of the 2nd entry: \cite[p.~37]{shelley}.
+
+We can also use cite to reference to two (or more) resources \cite{andersen,shelley}. Just separate the cite entries with a comma.
+
+\begin{thebibliography}{2} % here we define the number of references. We can have fewer references. this just specifies the maximum.
+    \bibitem{andersen} % specify the name of the reference
+    H. C. Andersen. \textit{The Little Mermain}. 1837. 
+    \bibitem{shelley}
+    M. Shelley. \textit{Frankenstein}. Oxford University Press. 1818.
+\end{thebibliography}
+
+\section{Citing with BibTeX}
+BiBtex is an external database file which stores all of our references. We create this file with the ".bib" extension. BibTeX is using a different "language" in its files, so we have to translate the entries so that they can be read as bib. to do that we can use:
+\begin{itemize}
+    \item \href{https://www.bibtex.com/e/entry-types/}{BibTeX entry types} (\url{https://www.bibtex.com/e/entry-types/})
+    \item \href{https://scholar.google.com/}{Google Scholar} (\url{https://scholar.google.com/})
+    
+\end{itemize}
+
+Here the file we are going to use is named "8. biblio.bib".
+
+\newpage
+\section{Using the Database}
+\subsection{Different Bibliography Styles}
+\url{https://www.overleaf.com/learn/latex/Bibtex_bibliography_styles}
+
+We have to tell the \LaTeX file where it can find the BibTeX
+
+This is a test citation to \cite{szkodny2008zbior}. \cite{sheley} \\
+\textbackslash bibliographystyle\{plain\}\\
+\textbackslash bibliography\{8.biblio\}
+
+\section[\texorpdfstring{Exercise About BibTeX}{Exercise About \BibTeX{}}]{Exercise About \BibTeX{}}
+
+\subsection{"\textbackslash BibTeX\{\}" as a section name}
+In LaTeX, some commands such as \BibTeX or \LaTeX are called "fragile" commands. These commands can't be used in certain places, like a section heading, without additional care.
+
+This is because when you use such commands in a section heading, they not only appear in the table of contents but also in the running headers on each page that correspond to the section or chapter. Running headers can be created using the commands like \markboth and \markright. And these commands try to expand the material in the header, which doesn't work properly with fragile commands.
+
+To avoid any issues related to fragile commands in section headings, it is recommended that you use the optional argument for the section command to provide a "short title" that will be used instead in the table of contents and the headers.
+
+For example: \\
+"\textbackslash section[\textbackslash texorpdfstring\{Exercise About BibTeX\}\{Exercise About \textbackslash BibTeX\{\}\}] \\
+\{Exercise About \textbackslash BibTeX\{\}\}"
+
+the optional argument is used to define a short title for the section that is used in the table of contents and the headers. The "\textbackslash texorpdfstring" command is used to specify how the short title should appear in the PDF bookmarks.
+
+\newpage
+\subsection{Disney movies based on books}
+
+Several of the Disney movies from our childhood is based on books. Examples are \textit{The Little Mermaid} which is based on [The Little Mermaid Book] \cite{andersen1964little}, \textit{The Hunchback of Notre-Dame} which is based on [Notre-Dame de Paris] \cite{hugo2012hunchback} , and \textit{Treasure Planet} based on [The Sea Cook: A Story for Boys] \cite{stevenson1883sea}. Common for most of these adaptations is that the original scripts is in the public domain. Hence one do not need to pay a licensing fee when creating an adaption. A more in-dept description on what it means that a work is in the public domain can be found here [Wikipedia] \cite{wiki:xxx}.
+
+\subsection{Exercises}
+\begin{enumerate}
+    \item Add the references in the text above using the \verb+\cite{}+ command. The references are already added in the \texttt{References.bib} file.
+    \item Make a reference list at the end of the document.
+    \item Change the style of the references to the \texttt{alpha} style.
+\end{enumerate}
+
+% \newpage
+\bibliographystyle{alpha}
+\bibliography{8_biblio}
+\end{document}
