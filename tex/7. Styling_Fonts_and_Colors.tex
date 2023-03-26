@@ -1,0 +1,65 @@
+\documentclass[12pt, titlepage]{article} 
+
+\usepackage{calligra} % font
+\usepackage[T1]{fontenc} % encoding for fonts
+\usepackage[dvipsnames]{xcolor} % get more colors with this option
+\definecolor{myNewColor}{RGB}{187, 42, 97}
+\definecolor{nextColor}{HTML}{ddaadd} % code in hex
+
+\usepackage{hyperref}
+
+\title{{\ttfamily \Huge Styling with {\calligra Fonts} and {\color{nextColor}Colors}}}
+\author{Me}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\section{Manipulating Text}
+\textbf{Hello}\textit{there}, \underline{general} Kenobi.
+\subsection{Sans Serif font}
+{\sffamily Sans Serif text}
+
+\subsection{Monospace / Typewritter font}
+{\ttfamily Monospace font}
+
+\subsection{Size of the text}
+\begin{itemize}
+    \item tiny: {\tiny Hello}
+    \item scriptsize: {\scriptsize Hello}
+    \item footnotesize: {\footnotesize Hello}
+    \item small: {\small Hello}
+    \item normalsize: {\normalsize Hello}
+    \item large: {\large Hello}
+    \item Large: {\Large Hello}
+    \item LARGE: {\LARGE Hello}
+    \item huge: {\huge Hello}
+    \item Huge: {\Huge Hello}
+\end{itemize}
+
+\section{{\calligra Finding Other Fonts}}
+We can find defferent fonts \href{https://tug.org/FontCatalogue/}{\textbf{here}}.
+
+\newpage
+\section{\color{red}{Setting Basic Colors}}
+We do that by using the "\textbackslash usepackage[dvipsnames]\{xcolor\}" {\color{OliveGreen}command}.
+
+\section{Design Custom Colors}
+Resources: 
+\begin{itemize}
+    \item \href{https://hackernoon.com/hex-colors-how-do-they-work-d8cb935ac0f}{HEX colors - how do they work}.
+    \item \href{https://coolors.co/655a7c-ab92bf-afc1d6-cef9f2-d6ca98}{Color picker}
+\end{itemize}
+We can define our Custom color in the preamble with \\
+"\textbackslash definecolor\{myNewColor\}\{RGB\}\{187, 42, 97\}". RGB has to be capitalized.\\
+Now we can use it wit "\textbackslash textcolor\{myNewColor\}\{text\}" like \textcolor{myNewColor}{this}.\\
+We can also define colors using HEX with "\textbackslash definecolor\{nextColor\}\{HTML\}\{ddaadd\}". The HTML means we are using HEX {\tiny (for some reason...)}.
+After defining it we can use it with the same command like \textcolor{nextColor}{this}.
+
+
+\end{document}
