@@ -1,4 +1,6 @@
-\documentclass[12pt,titlepage]{article}
+\documentclass[10pt,titlepage]{article}
+
+\usepackage{hyperref}
 
 \title{Using Classes and Templates}
 \author{Me}
@@ -13,4 +15,43 @@
 \newpage
 
 \section{Optional Arguments in the Documentclass}
+
+We have the:
+\begin{enumerate}
+    \item 12pt - to change the default font size from 10 to 12 pt
+    \item fleqn - change the equation display - float left
+    \item leqno - change the number of the equation - float left
+    \item twocolumn - the document will have two horizontal columns
+    \item landscape - self explanatory
+\end{enumerate}
+
+\section{The Letter Documentclass}
+
+To create the letter we can do something like this:
+\begin{verbatim}
+    \documentclass[12pt]{letter}
+
+    \signature{Me}
+    \address{Funkytown \\ Funkystreet \\ Funky house}
+
+    \begin{document}
+        \begin{letter}{CEO \\ Business INC \\ Business address}
+            % can take 2nd argument like the name of the company
+            \opening{To whom it may concern:}
+
+            I hope You are doing well.
+
+            \closing{Yours Faithfully.}
+        \end{letter}
+    \end{document}
+\end{verbatim}
+
+\section{Using Templates}
+
+We can access many templates on this website \url{https://no.overleaf.com/latex/templates} but there are other options.
+
+\section{Project: CV Template}
+
+I downloaded all the resources to the "resources" folder and this is the last thing I wanted to do.
+
 \end{document}
