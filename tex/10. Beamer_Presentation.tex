@@ -1,0 +1,99 @@
+\documentclass[10pt,titlepage]{article}
+
+\usepackage{hyperref}
+
+\title{Using Classes and Templates}
+\author{Me}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\section{Beamer Basics}
+
+\begin{verbatim}
+    \documentclass{beamer}
+
+    \title{Using Classes and Templates}
+    \author{Me}
+    \date{\today}
+    \institute{A University}
+    
+    \begin{document}
+    \maketitle
+
+    maketitle works the exact same way, but we can also use the 
+    "\frame{\titlepage}".
+    
+    We also use the "\institute{A University}" t ospecify the institute (???).
+
+    \begin{frame}{Content}
+        \tableofcontents       
+        We create the toc based on the sections even though those 
+        are not visible in the frane.
+    \end{frame}
+
+    \section{Introduction}
+    \begin{frame}{Titile}
+        % \frametitle{<title>}
+        Some text.
+    \end{frame}
+    
+    \end{document}
+    
+\end{verbatim}
+
+\newpage
+\section{How to Structure your Beamer}
+
+We are using the block environments inside our beamer.
+
+\begin{verbatim}
+    \begin{block}{Theme}\pause % title of the block
+        Here are the different things.
+    \end{block}
+
+    \begin{alertblock}{Important}
+        This block is used for important information.
+    \end{alertblock}
+
+    \begin{example} \pause
+        This is an example block, which does not need a title.
+        This block can take an optional argument like "[First Example]",
+        which will display this text in the color matched "()".
+    \end{example}
+
+    We are using "\pause" as a next slide indicator. We can display one block
+    on the page and then display like 2 or 3 on the next even though all of them
+    are on the same page. It splits the frame into two frames,
+    where the second starts right after the \pause command
+
+    We can also use "\alert{text}" to highlight a text in the beamer
+    (red but I think this is customizable).
+\end{verbatim}
+
+\section{Styling Your Beamer}
+
+\subsection{Theme}
+\begin{verbatim}
+    We can change the theme by specifying the thene name in the preamble.
+    "\usetheme{}" like: \usetheme{Hannover} or Bergen.
+
+    We can also change only the color with "\usecolortheme{}" like:
+    beetle or fly.
+\end{verbatim}
+We can also search the gallery which can be accessed here: \\
+\url{https://deic.uab.cat/~iblanes/beamer_gallery/index.html} \\
+or here: \\
+\url{https://no.overleaf.com/latex/templates/tagged/presentation}
+
+\section{Project: Make a Beamer Presentation}
+
+This project will be done in a separate file named "10. Beamer\textunderscore Project.tex".
+
+\end{document}

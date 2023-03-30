@@ -1,0 +1,91 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+%------ Project --------
+% -- Description --
+% In this project you are going to make a presentation about Pineapples (or anything else). The exercises are laid out in the comments.
+
+
+% Use the Madrid theme and the beaver color-theme.
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+% Give it the title "Beamer Project: About Pineapples".
+\title{Beamer Project: About Pineapples}
+
+% Fill in your name, institution, and today's date.
+\author{Stine}
+\institute{My University}
+\date{\today}
+
+\begin{document}
+
+% Make the title page.
+\maketitle
+
+% Make a list of contents.
+\begin{frame}{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+% Make a section called "About Pineapples".
+\section{About Pineapples}
+
+% Make the first frame, with the title "Information about Pineapples".
+\begin{frame}{Information About Pineapples}
+
+% Make a couple of boxes with some information. % - Make a box with these facts about pineapples, titled "Facts".
+\begin{block}{Facts}
+
+%   - Scientific Name: Ananas comosus (pause)
+%   - Indigenous to South America (pause)
+%   - Largest Producers: Costa Rica, Philippines, and Brazil (pause)
+\begin{itemize}
+    \item Scientific Name: Ananas comosus \pause
+    \item Indigenous to South America \pause
+    \item Largest Producers: Costa Rica, Philippines, and Brazil \pause
+\end{itemize}
+\end{block}
+
+% - Make an example block with the title "Pineapples in food and drink"
+%  - Drinks (pause)
+%    - Piña colada (pause)
+%    - Pineapple juice (pause)
+%  - Foods (pause)
+%    - Hamonado (pause)
+%    - Afritada (pause)
+%    - Kaeng som pla (pause)
+%    - Hawaiian haystack
+\begin{example}[Pineapples in food and drink]
+\begin{itemize}
+    \item Drinks \pause
+    \begin{itemize}
+        \item Piña colada \pause
+        \item Pineapple juice \pause
+    \end{itemize}
+    \item Foods \pause
+    \begin{itemize}
+        \item Hamonado \pause
+        \item Afritada \pause
+        \item Kaeng som pla \pause
+        \item Hawaiian haystack
+    \end{itemize}
+\end{itemize}
+\end{example}
+
+\end{frame}
+
+% Make the second frame, with the title "Information About Pineapples (continued)".
+\begin{frame}{Information About Pineapples (continued)}
+
+% - Make an alert-block with the title "Does Pineapples belong on Pizza?"
+%   - Has long been debated. (pause)
+%   - The answer is Yes! (The text yes should be alerted.)
+\begin{alertblock}{Does Pineapples belong on Pizza?}
+\begin{itemize}
+    \item Has long been debated. \pause
+    \item The answer is \alert{Yes!}
+\end{itemize}
+\end{alertblock}
+
+\end{frame}
+\end{document}
