@@ -1,6 +1,16 @@
 \documentclass[12pt,titlepage]{article}
 
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=3cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
 \usepackage{tikz}
+\usetikzlibrary{calc}
+
 \usepackage{hyperref}
 
 \title{Creating Figures With TikZ}
@@ -267,6 +277,203 @@ To note that the argument x of the cos function is in radians instead of the deg
         \draw[thick, dotted] ({2*(1-cos(2*pi/3 r)) * cos(2*pi/3 r)}, {2*(1-cos(2*pi/3 r)) * sin(2*pi/3 r)}) -- (-3/2, 0) node[below] {$-\frac{3}{2}$};
     \end{tikzpicture}
     \caption{The cardioid $\left(2(1-\cos(\theta))\cos(\theta),{2(1-\cos(\theta))\sin(\theta)}\right)$.}
+\end{figure}
+
+\newpage
+\section{For-Loops} 
+
+\begin{verbatim}
+Instead of using the:
+
+    \draw[ultra thin] (1, 0) -- (1, -0.1) node[below] {$1$};
+
+
+For each point by hand, we can use a for loop:
+
+    \foreach \x in {1, ..., 6}{
+        \draw[ultra thin] (\x, 0) -- (\x, -0.1) node[below] {$\x$};
+    }
+
+
+Full code:
+\begin{tikzpicture}[domain = 0:2*pi, scale = 2]
+    \draw[<->] (2*pi+0.1, 0) -- (0, 0) -- (0, 1.1);
+
+    \draw[thick, teal, smooth] plot (\x, {cos(\x r)}) node[right] {$\cos(x)$};
+    \draw[thick, purple, smooth] plot (\x, {sin(\x r)}) node[above right] {$\sin(x)$};
+
+    \foreach \x in {1, ..., 6}{
+        \draw[ultra thin] (\x, 0) -- (\x, -0.1) node[below] {$\x$};
+    }
+
+    \draw[ultra thin] (0, 1) -- (-0.1, 1) node[left] {$1$};
+\end{tikzpicture}
+\end{verbatim}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[domain = 0:2*pi, scale = 2]
+        \draw[<->] (2*pi+0.1, 0) -- (0, 0) -- (0, 1.1);
+
+        \draw[thick, teal, smooth] plot (\x, {cos(\x r)}) node[right] {$\cos(x)$};
+        \draw[thick, purple, smooth] plot (\x, {sin(\x r)}) node[above right] {$\sin(x)$};
+
+        \foreach \x in {1, ..., 6}{
+            \draw[ultra thin] (\x, 0) -- (\x, -0.1) node[below] {$\x$};
+        }
+
+        \draw[ultra thin] (0, 1) -- (-0.1, 1) node[left] {$1$};
+    \end{tikzpicture}
+    \caption{Automatic labeling of the points with a for loop.}
+\end{figure}
+
+\newpage
+\section{For-Loops Exercise}
+
+\begin{verbatim}
+The code:
+
+\begin{tikzpicture}
+    % the axis
+    \draw[<->] (10.2, 0) -- (0, 0) -- (0, 10.2);
+    
+    % labeling the axis
+    \foreach \x in {1, ..., 10}{
+        % x:
+        \draw[ultra thin] (\x, 0) -- (\x, -0.1) node[below] {$\x$};
+
+        % y:
+        \draw[ultra thin] (0, \x) -- (-0.1, \x) node[left] {$\x$};
+    }
+\end{tikzpicture}
+\end{verbatim}
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % the axis
+        \draw[<->] (10.2, 0) -- (0, 0) -- (0, 10.2);
+        
+        % labeling the axis
+        \foreach \x in {1, ..., 10}{
+            % x:
+            \draw[ultra thin] (\x, 0) -- (\x, -0.1) node[below] {$\x$};
+
+            % y:
+            \draw[ultra thin] (0, \x) -- (-0.1, \x) node[left] {$\x$};
+        }
+    \end{tikzpicture}
+    \caption{This is a for loop exercise plot}
+\end{figure}
+
+\newpage
+\section{BONUS: Drawing 3D Images with TikZ}
+
+\begin{verbatim}
+We can specify the points as coordinates and refer to them by their name.
+
+We can also use a "calc" package to enable the vector calculations:
+    \usetikzlibrary{calc}
+The calculations have to be in math env => $$.
+
+We can use something similar to "+=" when drawing the lines with the "--+":
+    \draw[] (A) --+ (H);
+
+
+The code:
+
+
+\begin{tikzpicture}
+    \coordinate (A) at ($2*(-1, 0, 0)$);
+    \coordinate (B) at ($2*(1, 0, 0)$);
+    \coordinate (C) at ($2*(0, 0, {sqrt(3)})$);
+    \coordinate (H) at ($2*(0, 2, 0)$);
+
+    % BASE
+    \draw[] (B) -- (C) -- (A);
+    \draw[dashed] (A) -- (B);
+
+    % TOP
+    \draw[] ($(B) + (H)$) -- ($(C) + (H)$) -- ($(A) + (H)$) -- cycle;
+
+    % conecting the base and the top
+    \draw[] (A) --+ (H);
+    \draw[] (B) --+ (H);
+    \draw[] (C) --+ (H);
+\end{tikzpicture}
+\end{verbatim}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \coordinate (A) at ($2*(-1, 0, 0)$);
+        \coordinate (B) at ($2*(1, 0, 0)$);
+        \coordinate (C) at ($2*(0, 0, {sqrt(3)})$);
+        \coordinate (H) at ($2*(0, 2, 0)$);
+
+        % BASE
+        \draw[] (B) -- (C) -- (A);
+        \draw[dashed] (A) -- (B);
+
+        % TOP
+        \draw[] ($(B) + (H)$) -- ($(C) + (H)$) -- ($(A) + (H)$) -- cycle;
+
+        % conecting the base and the top
+        \draw[] (A) --+ (H);
+        \draw[] (B) --+ (H);
+        \draw[] (C) --+ (H);
+    \end{tikzpicture}
+    \caption{This is the final figure and it is in 3D!}
+\end{figure}
+
+\newpage
+\subsection{Bonus 3D exercise}
+
+\begin{verbatim}
+
+The code:
+
+
+\begin{tikzpicture}
+    \coordinate (A) at (0, 0, 0);
+    \coordinate (B) at (2, 0, 0);
+    \coordinate (C) at (3, 1, 1);
+    \coordinate (D) at (1, 1, 1);
+    
+    \coordinate (H) at (0, 3, 0);
+
+    \draw[] (A) -- (B) -- (C);
+    \draw[dashed] (C) -- (D) -- (A);
+
+    \draw[] ($(A) + (H)$) -- ($(B) + (H)$) -- ($(C) + (H)$) -- ($(D) + (H)$) -- cycle;
+
+    \draw[] (A) --+ (H);
+    \draw[] (B) --+ (H);
+    \draw[] (C) --+ (H);
+    \draw[dashed] (D) --+ (H);
+\end{tikzpicture}
+\end{verbatim}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        \coordinate (A) at (0, 0, 0);
+        \coordinate (B) at (2, 0, 0);
+        \coordinate (C) at (3, 1, 1);
+        \coordinate (D) at (1, 1, 1);
+        
+        \coordinate (H) at (0, 3, 0);
+
+        \draw[] (A) -- (B) -- (C);
+        \draw[dashed] (C) -- (D) -- (A);
+
+        \draw[] ($(A) + (H)$) -- ($(B) + (H)$) -- ($(C) + (H)$) -- ($(D) + (H)$) -- cycle;
+
+        \draw[] (A) --+ (H);
+        \draw[] (B) --+ (H);
+        \draw[] (C) --+ (H);
+        \draw[dashed] (D) --+ (H);
+    \end{tikzpicture}
+    \caption{This is the last figure of the course. Such a beauty}
 \end{figure}
 
 \end{document} 
